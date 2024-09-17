@@ -2,14 +2,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GuestList {
+    private List<String> guestList = new ArrayList();
 
-    private List<Guest> guestList = new ArrayList();
-
-    public void setGuests(List<Guest> guests) {
+    public void setGuests(List<String> guests) {
         guestList = new ArrayList<>(guests);
     }
 
-    public List<Guest> getGuests() {
+    public List<String> getGuests() {
         return guestList;
     }
 }
