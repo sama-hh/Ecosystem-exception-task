@@ -72,5 +72,4 @@ class GuestListTest {
         //THEN
         assertTrue(Files.readAllLines(path).contains("John"));
     }
-
 }

@@ -46,8 +46,6 @@ Hint: Read and write using the java.nio.file.Files class
 Test 4:
 Write a test shouldReadFromFileSystem that
 
-
-
 writes "Stephan" and "Max" (as lines) to the file guests.txt
 
 creates an instance of the GuestList class
