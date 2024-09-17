@@ -8,7 +8,6 @@
 //Step 3: Write at least one test that verifies this behavior.
 
 
-
 public class Main {
 
     public static void main(String[] args) {
@@ -16,19 +15,19 @@ public class Main {
         StudentRepo studentRepo = new StudentRepo();
 
         Student newStudent = Student.builder()
+                .id("1")
                 .name("Florian")
                 .subject("Geschichte")
                 .build();
 
         Student savedStudent = studentService.addNewStudent(newStudent);
 
-        System.out.println("Student saved: " + savedStudent);
+        System.out.println("Students: " +  studentService.getAllStudents());
 
-//        try {
-//            studentRepo.findStudentById(null);
-//        } catch (IllegalArgumentException e) {
-//            System.out.println(e.getMessage());
-//            System.out.println("it cannot be null");
-//        }
+        try {
+            studentRepo.findStudentById(null);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

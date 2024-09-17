@@ -6,8 +6,8 @@ public class StudentService {
     private final StudentRepo repo = new StudentRepo();
 
     public Student addNewStudent(Student newStudent) {
-        Student studentToSave = newStudent.withId(UUID.randomUUID().toString());
-        return repo.save(studentToSave);
+//        Student studentToSave = newStudent.withId(UUID.randomUUID().toString());
+        return repo.save(newStudent);
     }
 
     public List<Student> getAllStudents(){

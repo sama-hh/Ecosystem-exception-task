@@ -13,10 +13,10 @@ public class StudentRepo {
         return student;
     }
 
-//    public Optional<Student> findStudentById(String id) {
-//        if (id == null) {
-//            throw new IllegalArgumentException("Id cannot be null");
-//        }
-//        return Optional.ofNullable(students.get(id));
-//    }
+    public Optional<Student> findStudentById(String id) {
+        if (id == null || id.isEmpty()) {
+            throw new IllegalArgumentException("There is no student with id " + id);
+        }
+        return Optional.ofNullable(students.get(id));
+    }
 }
