@@ -22,4 +22,10 @@ public class GuestList {
     public void readFile(Path filePath) throws IOException {
         guestList = Files.readAllLines(filePath);
     }
+
+    public void addGuest(String guest) throws IOException {
+        guestList.add(guest);
+        Path path = Path.of("guests.txt" );
+        Files.write(path, guestList);
+    }
 }

@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class GuestListTest {
     @Test
-    void shouldBeEmptyInitially(){
+    void shouldBeEmptyInitially() {
         //Given
         GuestList guestList = new GuestList();
         //When
@@ -51,9 +51,26 @@ class GuestListTest {
         GuestList guestList = new GuestList();
         guestList.readFile(path);
         //WHEN
-        List<String> result =  guestList.getGuests();
+        List<String> result = guestList.getGuests();
         //THEN
         assertEquals(List.of("Stephan", "Max"), result);
+    }
+
+    @Test
+    void exceptionOccursWhenReadingNonExistingFile() {
+        Path path = Path.of("noFile.txt");
+        GuestList guestList = new GuestList();
+        assertThrows(IOException.class, () -> guestList.readFile(path));
+    }
+
+    @Test
+    void addGuestToFileAddAdditionalLine() throws IOException {
+        Path path = Path.of("guests.txt");
+        GuestList guestList = new GuestList();
+        //WHEN
+        guestList.addGuest("John");
+        //THEN
+        assertTrue(Files.readAllLines(path).contains("John"));
     }
 
 }
