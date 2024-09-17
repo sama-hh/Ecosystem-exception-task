@@ -1,12 +1,13 @@
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class GuestListTest {
-
     @Test
     void shouldBeEmptyInitially(){
         //Given
@@ -29,6 +30,30 @@ class GuestListTest {
         assertEquals(List.of("Karl", "Ute"), result);
     }
 
+    @Test
+    void shouldWriteToFileSystem() throws IOException {
+        //Given
+        GuestList guestList = new GuestList();
+        //WHEN
+        guestList.setGuests(List.of("Theodor", "Anette"));
+        Path path = Path.of("guests.txt");
+        guestList.writeFile(path);
+        //THEN
+        assertTrue(Files.exists(path));
+        List<String> result = Files.readAllLines(path);
+    }
 
+    @Test
+    void shouldReadFromFileSystem() throws IOException {
+        //GIVEN
+        Path path = Path.of("guests.txt");
+        Files.write(path, List.of("Stephan", "Max"));
+        GuestList guestList = new GuestList();
+        guestList.readFile(path);
+        //WHEN
+        List<String> result =  guestList.getGuests();
+        //THEN
+        assertEquals(List.of("Stephan", "Max"), result);
+    }
 
 }

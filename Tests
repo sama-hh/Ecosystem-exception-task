@@ -35,8 +35,6 @@ and checks that the result contains "Karl" and "Ute"
 Test 3:
 Write a test shouldWriteToFileSystem that
 
-
-
 creates an instance of the GuestList class
 
 calls the setGuests method with "Theodor" and "Anette"
@@ -44,8 +42,6 @@ calls the setGuests method with "Theodor" and "Anette"
 and checks that the file guests.txt has been created and contains the lines "Theodor" and "Anette"
 Hint: Define the file path with Path.of("guests.txt")
 Hint: Read and write using the java.nio.file.Files class
-
-
 
 Test 4:
 Write a test shouldReadFromFileSystem that
